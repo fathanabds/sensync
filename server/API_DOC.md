@@ -18,7 +18,7 @@ http://localhost:3000
 
 - **URL:** `/books`
 - **Method:** `POST`
-- **Description:** Create new book data.
+- **Description:** Creates new book data.
 - **Request Body:**
   ```json
   {
@@ -106,7 +106,7 @@ http://localhost:3000
 
 - **URL:** `/book/:id`
 - **Method:** `DELETE`
-- **Description:** Delete book data.
+- **Description:** Deletes book data.
 - **Response:**
   ```json
   {
