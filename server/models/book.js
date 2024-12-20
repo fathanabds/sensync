@@ -44,6 +44,10 @@ module.exports = (sequelize, DataTypes) => {
             args: 1,
             msg: 'Year must be greater than 0',
           },
+          max: {
+            args: new Date().getFullYear(),
+            msg: 'Year must be less than or equal to current year',
+          },
         },
       },
     },

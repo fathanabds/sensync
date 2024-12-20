@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axiosClient from '../utils/axiosClient';
-import Swal from 'sweetalert2';
 import BookRow from '../components/BookRow';
+import Swal from 'sweetalert2';
 
 export default function Home() {
   const [books, setBooks] = useState([]);
@@ -12,6 +12,7 @@ export default function Home() {
       setBooks(data);
     } catch (error) {
       console.log(error);
+      Swal.fire(error.response.data.message, '', 'error');
     }
   }
 
@@ -34,7 +35,16 @@ export default function Home() {
             </tr>
           </thead>
           <tbody>
-            <BookRow />
+            {books.length === 0 && (
+              <tr>
+                <td colSpan="5" className="text-center">
+                  No books available
+                </td>
+              </tr>
+            )}
+            {books.map((book, index) => (
+              <BookRow fetchBooks={fetchBooks} index={index} key={book.id} book={book} />
+            ))}
           </tbody>
         </table>
       </div>
